@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger Dashboard - Airport Ride Pooling</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>✈️ Passenger Dashboard</h1>
+            <nav id="nav-links">
+                <button id="logout-btn" class="secondary-btn">Logout</button>
+            </nav>
+        </header>
+
+        <main>
+            <section id="dashboard-section">
+                <div class="dashboard-header">
+                    <h2 id="welcome-msg">Hello, Passenger</h2>
+                    <span id="role-badge" class="badge">Passenger</span>
+                </div>
+
+                <div class="card">
+                    <h3>Request a Ride</h3>
+                    <form id="rideRequestForm">
+                        <div class="form-row">
+                            <div class="input-group">
+                                <label>Pickup Location</label>
+                                <input type="text" value="Airport Terminal 1" disabled>
+                                <small>Currently supporting Airport pickups only</small>
+                            </div>
+                            <div class="input-group">
+                                <label for="destination">Destination Coordinates (Lat, Lng)</label>
+                                <input type="text" id="destination" placeholder="e.g. 12.9716, 77.5946" required>
+                                <button type="button" id="use-my-loc" class="text-btn">Use My Location (Random)</button>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 1rem;">
+                            <button type="button" id="get-estimate-btn" class="secondary-btn" style="flex: 1;">Get
+                                Estimate</button>
+                            <button type="submit" class="primary-btn" style="flex: 1;">Find Pool</button>
+                        </div>
+                    </form>
+                    <div id="estimation-result" class="result-box" style="display: none;">
+                        <p>Estimated Price: <strong id="est-price">₹0.00</strong></p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Current Ride Status</h3>
+                    <div id="ride-status" class="status-box">
+                        <p>No active rides.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div id="toast" class="toast"></div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

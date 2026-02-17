@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Dashboard - Airport Ride Pooling</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🚖 Driver Dashboard</h1>
+            <nav id="nav-links">
+                <button id="logout-btn" class="secondary-btn">Logout</button>
+            </nav>
+        </header>
+
+        <main>
+            <section id="driver-dashboard-section">
+                <div class="dashboard-header">
+                    <h2 id="welcome-msg">Hello, Driver</h2>
+                    <span id="role-badge" class="badge">Driver</span>
+                </div>
+
+                <div class="card">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h3>Open Ride Requests</h3>
+                        <button id="refresh-rides" class="secondary-btn">🔄 Refresh</button>
+                    </div>
+                    <div id="rides-list" class="rides-grid">
+                        <p>Loading rides...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div id="toast" class="toast"></div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
